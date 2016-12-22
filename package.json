@@ -1,0 +1,46 @@
+{
+  "name": "jquery-lite",
+  "title": "jQuery Lite",
+  "description": "JavaScript library for DOM operations",
+  "version": "0.1.0",
+  "author": {
+    "name": "linder wang",
+    "url": ""
+  },
+  "keywords": [
+    "jquery",
+    "lite",
+    "javascript"
+  ],
+  "main": "bin/jquery.js",
+  "scripts": {
+    "clean": "rimraf ./lib ./dist",
+    "build-lib": "babel src -d ./lib",
+    "build-dist": "webpack --progress --colors --config webpack.config.babel.js",
+    "uglify": "uglifyjs --support-ie8 ./dist/jquery-lite.js -o ./dist/jqLite-lite.min.js",
+    "prebuild": "npm run clean",
+    "build": "npm run build-lib && npm run build-dist && npm run uglify"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "bootstrap": "4.0.0-alpha.5",
+    "eslint": "^3.12.2",
+    "eslint-loader": "^1.6.1",
+    "eslint-plugin-flowtype": "^2.29.1",
+    "rimraf": "^2.5.4",
+    "webpack": "v2.2.0-rc.1"
+  },
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "license": "MIT"
+}
